@@ -112,6 +112,10 @@ export async function GET() {
 
     return Response.json({ message: 'Database seeded successfully' });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
-  }
+  console.error('Erreur détaillée dans le seed:', error);
+  return Response.json({ 
+    message: 'Erreur lors du seeding',
+    error: error instanceof Error ? error.message : String(error)
+  }, { status: 500 });
+}
 }
