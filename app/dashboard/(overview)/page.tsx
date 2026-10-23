@@ -21,6 +21,8 @@ export default async function Page() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Suspense fallback={<CardsSkeleton />}>
           <CardWrapper />
+          <RevenueChart/>
+          <LatestInvoices />
         </Suspense>
       </div>
     </main>
